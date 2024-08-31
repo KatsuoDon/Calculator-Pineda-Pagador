@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/almostBlack"
+    tools:ignore="HardcodedText"
+    tools:context=".MainActivity">
+
+    <!-- This layout holds the input and result displays -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:padding="20dp">
+
+        <!-- Display for showing ongoing calculations -->
+        <TextView
+            android:id="@+id/workingsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textAlignment="textEnd"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@id/resultsTV"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Display for showing the final result -->
+        <TextView
+            android:id="@+id/resultsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textAlignment="textEnd"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Row with clear, backspace, and division buttons -->
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <!-- Button to clear all input -->
+        <Button
+            style="@style/buttonNumber"
+            android:textColor="@color/red"
+            android:onClick="allClearAction"
+            android:text="C"/>
+
+        <!-- Button to remove the last character -->
+        <Button
+            style="@style/buttonNumber"
+            android:textColor="@color/red"
+            android:onClick="backSpaceAction"
+            android:text="⌫"/>
+
+        <!-- It's a blank space for design I guess? Idk -->
+        <Button
+            style="@style/buttonNumber"
+            android:text=" "
+            android:contentDescription="It's a blank space for design"
+            tools:ignore="ButtonWithoutText" />
+
+        <!-- Button for the division operation -->
+        <Button
+            style="@style/buttonOperator"
+            android:textSize="50dp"
+            android:text="÷"/>
+    </LinearLayout>
+
+    <!-- Row with number buttons 7, 8, 9 and the multiplication button -->
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="7"/>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="8"/>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="9" />
+
+        <!-- Button for the multiplication operation -->
+        <Button
+            style="@style/buttonOperator"
+            android:text="x"/>
+    </LinearLayout>
+
+    <!-- Row with number buttons 4, 5, 6 and the subtraction button -->
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <!-- Button for number 4 -->
+        <Button
+            style="@style/buttonNumber"
+            android:text="4"/>
+
+        <!-- Button for number 5 -->
+        <Button
+            style="@style/buttonNumber"
+            android:text="5"/>
+
+        <!-- Button for number 6 -->
+        <Button
+            style="@style/buttonNumber"
+            android:text="6" />
+
+        <!-- Button for the subtraction operation -->
+        <Button
+            style="@style/buttonOperator"
+            android:textSize="50dp"
+            android:text="-"/>
+    </LinearLayout>
+
+    <!-- Row with number buttons 1, 2, 3 and the addition button -->
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="1"/>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="2"/>
+
+        <Button
+            style="@style/buttonNumber"
+            android:text="3" />
+
+        <!-- Button for the addition operation -->
+        <Button
+            style="@style/buttonOperator"
+            android:textSize="50dp"
+            android:text="+"/>
+    </LinearLayout>
+
+    <!-- Row with decimal point, number 0, and equals button -->
+    <LinearLayout
+        style="@style/buttonRow">
+
+        <!-- Button for decimal point -->
+        <Button
+            style="@style/buttonNumber"
+            android:text="."/>
+
+        <!-- Button for number 0 -->
+        <Button
+            style="@style/buttonNumber"
+            android:text="0"/>
+
+        <!-- Button for calculating the result -->
+        <Button
+            style="@style/buttonNumber"
+            android:layout_weight="2"
+            android:background="@color/orange"
+            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:onClick="equalsAction"
+            android:text="="
+            tools:ignore="TextContrastCheck"/>
+    </LinearLayout>
+
+</LinearLayout>
